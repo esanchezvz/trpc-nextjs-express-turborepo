@@ -1,9 +1,7 @@
 import { initTRPC } from '@trpc/server';
-import superjson from 'superjson';
 
 
 const db = {}
-
 
 const createInnerTRPCContext = (): {
   db: typeof db
@@ -17,9 +15,7 @@ export const createTRPCContext = () => {
   return createInnerTRPCContext();
 };
 
-const t = initTRPC.context<typeof createTRPCContext>().create({
-  transformer: superjson,
-});
+const t = initTRPC.context<typeof createTRPCContext>().create();
 
 export const createTRPCRouter = t.router;
 

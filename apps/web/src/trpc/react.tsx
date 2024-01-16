@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
-import superjson from 'superjson';
 
 import type { AppRouter } from '@repo/trpc/routers';
 
@@ -18,17 +17,13 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers: H
 
   const [trpcClient] = useState(() =>
     trpc.createClient({
-      transformer: superjson,
       links: [
         httpBatchLink({
           url: `${getBaseUrl()}/trpc`,
           headers() {
             const heads = new Map(props.headers);
             heads.set('x-trpc-source', 'react');
-
-            const authToken = '';
-            authToken ? heads.set('Authorization', authToken) : undefined;
-
+            heads.delete("Transfer-Encoding")
             return Object.fromEntries(heads);
           },
           fetch(url, opts) {
