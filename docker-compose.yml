@@ -1,0 +1,26 @@
+version: '3.5'
+
+volumes:
+  test:
+
+services:
+  api:
+    image: api
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    container_name: api
+    ports:
+      - '3030:3030'
+  test:
+    image: postgres:12
+    command: postgres -c 'max_connections=200'
+    restart: always
+    container_name: test
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    ports:
+      - "5432:5432"
+    volumes:
+      - test:/var/lib/postgresql/data

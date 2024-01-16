@@ -1,0 +1,33 @@
+{
+  "name": "@repo/trpc",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./src/server/trpc.ts",
+    "./server": "./src/server/index.ts",
+    "./routers": "./src/routers/index.ts",
+    "./express": "./src/adapters/express.ts"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "format": "prettier --check \"**/*.{mjs,js,jsx,ts,tsx,md,json}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@trpc/server": "^10.45.0",
+    "superjson": "^1.13.3"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@repo/eslint-config/base"
+    ]
+  },
+  "prettier": "@repo/prettier-config"
+}

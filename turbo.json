@@ -1,0 +1,52 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalDotEnv": [".env"],
+  "globalEnv": ["PORT", "SKIP_ENV_VALIDATION"],
+  "pipeline": {
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "next-env.d.ts"],
+      "dotEnv": [".env"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false,
+      "dotEnv": [".env", ".env.development"]
+    },
+    "format": {
+      "outputs": ["node_modules/.cache/.prettiercache"],
+      "outputMode": "new-only"
+    },
+    "lint": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "db:dev": {
+      "cache": false
+    },
+    "db:format": {
+      "cache": false
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    },
+    "worker:importNobiliaCatalog": {
+      "cache": false
+    },
+    "worker:importNobiliaSamples": {
+      "cache": false
+    },
+    "typecheck": {
+      "dependsOn": ["^topo"]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
