@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec \"ts-node ./src/index.ts\" --watch src --ext ts --watch ../../packages/trpc/server"
+    "dev": "nodemon --exec \"ts-node ./src/index.ts\" --watch src --ext ts --watch ../../packages/trpc/server",
+    "format": "prettier --check \"**/*.{mjs,js,ts,md,json}\""
   },
   "dependencies": {
     "cors": "^2.8.5",

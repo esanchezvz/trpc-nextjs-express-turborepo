@@ -7,9 +7,6 @@ import { fileURLToPath } from 'url';
 /** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
 const config = {
   plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
-  tailwindConfig: fileURLToPath(
-    new URL('../../packages/design-system/tailwind.config.ts', import.meta.url),
-  ),
   tailwindFunctions: ['clsx', 'cn', 'cva', 'tw'],
   importOrder: [
     '^(react/(.*)$)|^(react$)',

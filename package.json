@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "turbo dev",
     "api:dev": "pnpm -F api dev",
-    "web:dev": "pnpm -F web dev"
+    "web:dev": "pnpm -F web dev",
+    "format": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache'"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
