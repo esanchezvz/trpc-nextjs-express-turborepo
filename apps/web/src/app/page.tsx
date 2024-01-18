@@ -1,4 +1,4 @@
-// import { Client } from "@/components/client";
+import { Client } from '@/components/client';
 import { Server } from '@/components/server';
 
 export default function Home() {
@@ -7,6 +7,7 @@ export default function Home() {
       <h1>Hola Mundo!</h1>
 
       <Server />
+      <Client />
     </main>
   );
 }

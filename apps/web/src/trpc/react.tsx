@@ -16,7 +16,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers: H
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: process.env.API_URL ?? '',
+          url: process.env.NEXT_PUBLIC_API_URL ?? '',
           headers() {
             const heads = new Map(props.headers);
             heads.set('x-trpc-source', 'react');

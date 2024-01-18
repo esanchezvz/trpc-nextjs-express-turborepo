@@ -1,7 +1,7 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "globalDotEnv": [".env"],
-  "globalEnv": ["PORT", "SKIP_ENV_VALIDATION", "API_URL"],
+  "globalEnv": ["PORT", "SKIP_ENV_VALIDATION", "API_URL", "NEXT_PUBLIC_API_URL"],
   "pipeline": {
     "topo": {
       "dependsOn": ["^topo"]
